@@ -1,0 +1,33 @@
+{
+ "attach_print": 0,
+ "channel": "Email",
+ "condition": "doc.status == \"Scheduled\"",
+ "creation": "2024-05-28 21:23:07.885016",
+ "date_changed": "date_of_departure",
+ "days_in_advance": 1,
+ "docstatus": 0,
+ "doctype": "Notification",
+ "document_type": "Airplane Flight",
+ "enabled": 1,
+ "event": "Days Before",
+ "idx": 0,
+ "is_standard": 1,
+ "message": "<h3>Departs in 24 hours!</h3>\n\n<p>The Flight {{ doc.name }} is due to departure with in 24 Hours from now. Please Keep travel ready.</p>\n\n<p><!-- show last comment -->\n{% if comments %}\nLast comment: {{ comments[-1].comment }} by {{ comments[-1].by }}\n{% endif %}</p>\n\n<h4>Details</h4>\n\n<ul>\n<li>Flight: {{ doc.airplane }}\n<li>From: {{ doc.source_airport_code }} To : {{ destination_airport_code }}\n<li>Departure Date & Time: {{ doc.date_of_departure }} || {{ doc.date_of_time }}\n<li>Duration: {{ frappe.utils.format_duration(doc.duration) }}\n</ul>\n",
+ "message_type": "Markdown",
+ "modified": "2024-05-28 21:39:41.568145",
+ "modified_by": "Administrator",
+ "module": "Airplane Mode",
+ "name": "Flight departure date Notification",
+ "owner": "Administrator",
+ "recipients": [
+  {
+   "receiver_by_document_field": "owner",
+   "receiver_by_role": "Administrator"
+  }
+ ],
+ "send_system_notification": 1,
+ "send_to_all_assignees": 0,
+ "sender": "_Test Email Account 1",
+ "sender_email": "test@example.com",
+ "subject": "Departs in 24 hours!"
+}

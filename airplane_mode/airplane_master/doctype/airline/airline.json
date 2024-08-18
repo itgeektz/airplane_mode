@@ -1,0 +1,83 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "prompt",
+ "creation": "2024-05-05 10:40:34.601872",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "founding_year",
+  "headquarters",
+  "column_break_lwlc",
+  "customer_care_number",
+  "add",
+  "website"
+ ],
+ "fields": [
+  {
+   "fieldname": "founding_year",
+   "fieldtype": "Int",
+   "label": "Founding Year",
+   "non_negative": 1
+  },
+  {
+   "fieldname": "headquarters",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Headquarters",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_lwlc",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "customer_care_number",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Customer Care Number",
+   "reqd": 1
+  },
+  {
+   "fieldname": "add",
+   "fieldtype": "Data",
+   "label": "Add"
+  },
+  {
+   "fieldname": "website",
+   "fieldtype": "Data",
+   "label": "Website",
+   "options": "URL"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [
+  {
+   "link_doctype": "Airplane",
+   "link_fieldname": "airline"
+  }
+ ],
+ "modified": "2024-07-16 19:53:27.992730",
+ "modified_by": "Administrator",
+ "module": "Airplane Master",
+ "name": "Airline",
+ "naming_rule": "Set by user",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

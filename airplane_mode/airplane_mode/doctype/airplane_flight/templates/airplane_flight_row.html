@@ -1,0 +1,29 @@
+
+{% block page_content %}
+
+<div>
+	<a >{{ doc.title or doc.name }}</a>
+	
+</div>
+<!--<diiv>
+	<a1 >{{ doc.airplane }}</a1>	
+</diiv> -->
+
+<div>
+	<a >{{ doc.source_airport_code}} -> {{ doc.destination_airport_code }} </a>
+</div>
+<div>
+	<a >{{ frappe.utils.format_date(doc.date_of_departure, "d MMMM, YYYY")}} | {{ doc.time_of_departure }} | {{ frappe.utils.format_duration(doc.duration) }}</a>
+</div>
+<div>
+	<a href="{{ doc.route }}">Flight Details</a>
+	
+	
+</div>
+<div>
+	<span>
+	----------------------------------------------------------------------
+	</span>
+</div>
+<!-- this is a sample default list template -->
+{% endblock %}

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dynamic Content Example</title>
+    <style>
+        svg {
+          transition:all;
+        }
+    </style>
+</head>
+<body>
+    <div>
+      {% if frappe.form_dict.color %}
+      <svg style="background-color: {{ frappe.form_dict.color }};"></svg>
+  {% else %}
+      <svg style="background-color: black;"></svg>
+  {% endif %}
+     </div>
+
+</body>
+</html>
