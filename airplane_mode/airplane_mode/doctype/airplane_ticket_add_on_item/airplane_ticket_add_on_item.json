@@ -14,8 +14,10 @@
   {
    "fieldname": "item",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Item",
-   "options": "Airplane Ticket Add-on Type"
+   "options": "Airplane Ticket Add-on Type",
+   "reqd": 1
   },
   {
    "fieldname": "column_break_rioq",
@@ -31,7 +33,7 @@
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2024-05-12 21:39:15.794033",
+ "modified": "2025-03-11 22:15:40.753849",
  "modified_by": "Administrator",
  "module": "Airplane Mode",
  "name": "Airplane Ticket Add-on Item",

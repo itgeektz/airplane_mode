@@ -22,7 +22,8 @@
   {
    "fieldname": "date_of_birth",
    "fieldtype": "Date",
-   "label": "Date Of Birth"
+   "label": "Date Of Birth",
+   "reqd": 1
   },
   {
    "fieldname": "column_break_cmcp",
@@ -47,7 +48,7 @@
    "link_fieldname": "passenger"
   }
  ],
- "modified": "2024-05-09 22:02:42.784758",
+ "modified": "2025-03-10 19:48:03.157281",
  "modified_by": "Administrator",
  "module": "Airplane Mode",
  "name": "Flight Passenger",
@@ -71,5 +72,5 @@
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": [],
- "title_field": "full_name"
+ "title_field": "first_name"
 }

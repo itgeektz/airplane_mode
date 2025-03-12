@@ -3,7 +3,7 @@ app_title = "Airplane Mode"
 app_publisher = "Nidhi"
 app_description = "Manage Airplanes and Airports along with passenger\'s and their flight bookings"
 app_email = "info@airplanemode.co.tz"
-app_license = "mit"
+app_license = "mit2"
 # required_apps = []
 
 # Includes in <head>
