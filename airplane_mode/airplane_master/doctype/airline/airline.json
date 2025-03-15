@@ -2,15 +2,14 @@
  "actions": [],
  "allow_rename": 1,
  "autoname": "prompt",
- "creation": "2024-05-05 10:40:34.601872",
+ "creation": "2025-03-12 21:27:22.940660",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
   "founding_year",
   "headquarters",
-  "column_break_lwlc",
+  "column_break_ycrj",
   "customer_care_number",
-  "add",
   "website"
  ],
  "fields": [
@@ -21,14 +20,7 @@
    "non_negative": 1
   },
   {
-   "fieldname": "headquarters",
-   "fieldtype": "Data",
-   "in_list_view": 1,
-   "label": "Headquarters",
-   "reqd": 1
-  },
-  {
-   "fieldname": "column_break_lwlc",
+   "fieldname": "column_break_ycrj",
    "fieldtype": "Column Break"
   },
   {
@@ -39,9 +31,10 @@
    "reqd": 1
   },
   {
-   "fieldname": "add",
+   "fieldname": "headquarters",
    "fieldtype": "Data",
-   "label": "Add"
+   "label": "Headquarters",
+   "reqd": 1
   },
   {
    "fieldname": "website",
@@ -51,13 +44,8 @@
   }
  ],
  "index_web_pages_for_search": 1,
- "links": [
-  {
-   "link_doctype": "Airplane",
-   "link_fieldname": "airline"
-  }
- ],
- "modified": "2024-07-16 19:53:27.992730",
+ "links": [],
+ "modified": "2025-03-15 16:10:41.330645",
  "modified_by": "Administrator",
  "module": "Airplane Master",
  "name": "Airline",
