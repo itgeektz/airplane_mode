@@ -230,5 +230,30 @@ app_license = "mit2"
 fixtures = [
     {
         "dt":"Airplane Ticket Add-on Type"
+    },
+    {
+        "dt":"Flight Passenger"
+
+    },
+    {
+        "dt":"Airplane Flight"
+
+    },
+     {
+        "dt":"Airplane Ticket"
+
+    },
+     {
+        "dt":"Airport"
+
+    },
+     {
+        "dt":"Airplane"
+
+    },
+     {
+        "dt":"Airline"
+
     }
+
 ]

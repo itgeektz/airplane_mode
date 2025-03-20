@@ -1,0 +1,56 @@
+[
+ {
+  "airline": "Air India",
+  "capacity": 126,
+  "docstatus": 0,
+  "doctype": "Airplane",
+  "model": "BOEING 737",
+  "modified": "2025-03-17 20:00:08.616946",
+  "name": "Air India-001"
+ },
+ {
+  "airline": "Air Tanzania",
+  "capacity": 301,
+  "docstatus": 0,
+  "doctype": "Airplane",
+  "model": "BOEING 777",
+  "modified": "2025-03-17 20:01:15.297718",
+  "name": "Air Tanzania-002"
+ },
+ {
+  "airline": "Air India",
+  "capacity": 853,
+  "docstatus": 0,
+  "doctype": "Airplane",
+  "model": "Airbus A380-800",
+  "modified": "2025-03-17 20:02:59.483092",
+  "name": "Air India-003"
+ },
+ {
+  "airline": "IndiGo",
+  "capacity": 230,
+  "docstatus": 0,
+  "doctype": "Airplane",
+  "model": "Airbus A320",
+  "modified": "2025-03-17 20:03:19.039922",
+  "name": "IndiGo-004"
+ },
+ {
+  "airline": "Akasa Air",
+  "capacity": 305,
+  "docstatus": 0,
+  "doctype": "Airplane",
+  "model": "Airbus A330-300",
+  "modified": "2025-03-17 20:03:35.474117",
+  "name": "Akasa Air-005"
+ },
+ {
+  "airline": "IndiGo",
+  "capacity": 210,
+  "docstatus": 0,
+  "doctype": "Airplane",
+  "model": "Boeing 787",
+  "modified": "2025-03-17 20:03:56.153903",
+  "name": "IndiGo-006"
+ }
+]

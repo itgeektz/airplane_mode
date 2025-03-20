@@ -1,0 +1,29 @@
+{
+ "add_total_row": 0,
+ "add_translate_data": 0,
+ "columns": [],
+ "creation": "2025-03-19 21:45:05.282545",
+ "disabled": 0,
+ "docstatus": 0,
+ "doctype": "Report",
+ "filters": [],
+ "idx": 0,
+ "is_standard": "Yes",
+ "letterhead": null,
+ "modified": "2025-03-20 19:27:02.402300",
+ "modified_by": "Administrator",
+ "module": "Airplane Mode",
+ "name": "Revenue by Airline",
+ "owner": "Administrator",
+ "prepared_report": 0,
+ "ref_doctype": "Airplane Ticket",
+ "report_name": "Revenue by Airline",
+ "report_script": "result = frappe.db.sql(\n f\"\"\"\n select ap.airline,sum(at.total_amount)\n FROM \n    `tabAirplane Ticket` at\nleft outer join\n    `tabAirplane Flight` af on af.name = at.flight\nleft outer join\n    `tabAirplane` ap on ap.name = af.airplane\n\n \"\"\"\n)",
+ "report_type": "Script Report",
+ "roles": [
+  {
+   "role": "System Manager"
+  }
+ ],
+ "timeout": 0
+}
