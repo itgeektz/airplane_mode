@@ -4,52 +4,66 @@
 import frappe
 from frappe.model.document import Document
 import random
+import string
 
 
 class AirplaneTicket(Document):
 	
 	def before_save(self):
 		if self.get("add_ons"):
-			item_total_amount = 0
+			total_amount = 0
 			for item in self.get("add_ons"):
-				item_total_amount = item_total_amount + item.amount
-			self.total_amount = self.flight_price + item_total_amount
+				total_amount = total_amount + item.amount
+			self.total_amount = self.flight_price + total_amount
 		else:
 			self.total_amount = self.flight_price
-
+		
 	def validate(self):
-		items = []
-		for item in self.get("add_ons"):
-			if item.item not in items:
-				items.append(item.item)
-			else:
-				#p = frappe.get_doc("add_ons", item.item)
-				#p.remove(item.item)
-				frappe.throw("Remove the repeating Item : {} with Price: {} from the Add Ons".format(item.item,item.amount))
-	def before_submit(self):		
+		capacity, used_seats = seats_used(self.flight,self.name)
+		if capacity <= len(used_seats):
+				frappe.throw("capacity is full")
+		seen_items = set()
+		for item in self.get("add_ons", []):
+			if item.item in seen_items:
+				raise frappe.throw("Remove the repeating Item : {} with Price: {} from the Add Ons".format(item.item,item.amount))
+			seen_items.add(item.item)
+		if self.seat:
+			if self.seat in used_seats:
+				frappe.throw("This seat is already used")
+		
+	def before_submit(self):
 		if self.status != "Boarded":
 			frappe.throw("This is not a valid Status for document submission")
 		if not self.seat:
-			seat_data = assign_seats(self.flight)
+			seat_data = assign_seats(self.flight,self.name)
 			if seat_data and seat_data.get("seat"):
 				self.seat = seat_data["seat"]
 			else:
 				frappe.throw("No seats available for assignment")
 
-			
-		
-@frappe.whitelist()
-def assign_seats(flight):
-	airplane = frappe.db.get_value("Airplane Flight",flight,"airplane")
-	capacity = frappe.db.get_value("Airplane",airplane,"capacity")
-	no_of_rows = capacity / 6
-	seat_line = ["A","B","C","D","E"]
-	seats_used = frappe.get_all("Airplane Ticket",filters={"flight":flight},fields=["seat"],pluck="seat")
-	#frappe.msgprint("Seats already booked: {}".format(seats_used))
+def assign_seats(flight,name):
+	capacity,used_seats = seats_used(flight,name)
+	if capacity <= len(used_seats):
+		frappe.throw("capacity is full")
+	no_of_columns = 9
+	A_Z = list(string.ascii_uppercase)
+	if capacity < no_of_columns:
+		no_of_rows = 2
+		seat_line = A_Z[:capacity]
+	else:
+		no_of_rows = capacity / no_of_columns
+		seat_line = A_Z[:no_of_columns]
 	seat = f"{random.randrange(1,int(no_of_rows))}{random.choice(seat_line)}"
-	if seat in seats_used:
+	if seat in used_seats:
 		seat = f"{random.randrange(1,int(no_of_rows))}{random.choice(seat_line)}"
 	return {"seat": seat}
+
+@frappe.whitelist()
+def seats_used(flight,name):
+	airplane = frappe.db.get_value("Airplane Flight",flight,"airplane")
+	seats_used = frappe.get_all("Airplane Ticket",filters={"flight":flight,"name":["!=", name]},fields=["seat"],pluck="seat")
+	capacity = frappe.db.get_value("Airplane",airplane,"capacity")
+	return capacity,seats_used
 
 
 
