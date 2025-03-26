@@ -1,0 +1,160 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:{shop}-{YY}-{#####}",
+ "creation": "2025-03-24 19:38:37.897181",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "shop",
+  "start_date",
+  "status",
+  "column_break_lgmz",
+  "tenant",
+  "end_date",
+  "section_break_eexr",
+  "shop_rate",
+  "shop_size",
+  "rental_amount",
+  "column_break_tjyc",
+  "airport",
+  "airport_code",
+  "terminal",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "tenant",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Tenant",
+   "options": "Tenant",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_lgmz",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "start_date",
+   "fieldtype": "Date",
+   "label": "Start Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "end_date",
+   "fieldtype": "Date",
+   "label": "End Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_eexr",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "shop",
+   "fieldtype": "Link",
+   "label": "Shop",
+   "options": "Shop",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_tjyc",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "shop.airport",
+   "fieldname": "airport",
+   "fieldtype": "Data",
+   "label": "Airport",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fetch_from": "shop.terminal",
+   "fieldname": "terminal",
+   "fieldtype": "Data",
+   "label": "Terminal",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "shop.rate_per_sqm",
+   "fieldname": "shop_rate",
+   "fieldtype": "Data",
+   "label": "Shop Rate",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fetch_from": "shop.size",
+   "fieldname": "shop_size",
+   "fieldtype": "Data",
+   "label": "Shop Size",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fetch_from": "shop.rent_per_month",
+   "fetch_if_empty": 1,
+   "fieldname": "rental_amount",
+   "fieldtype": "Currency",
+   "label": "Rental Amount",
+   "non_negative": 1,
+   "precision": "2",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Rental Agreement",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fetch_from": "shop.airport_code",
+   "fieldname": "airport_code",
+   "fieldtype": "Data",
+   "label": "Airport Code",
+   "read_only": 1
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "\nOpen\nValid\nExpired\nCancelled\nTerminated",
+   "reqd": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2025-03-25 20:01:52.388651",
+ "modified_by": "Administrator",
+ "module": "Track Shops",
+ "name": "Rental Agreement",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

@@ -14,9 +14,11 @@
   "airport_details_section",
   "source_airport",
   "source_airport_code",
+  "departure_gate",
   "column_break_jsbo",
   "detination_airport",
   "destination_airport_code",
+  "arrival_gate",
   "departure_details_section",
   "date_of_departure",
   "duration",
@@ -24,7 +26,9 @@
   "time_of_departure",
   "amended_from",
   "route",
-  "published"
+  "published",
+  "section_break_jdfv",
+  "assigned_crew"
  ],
  "fields": [
   {
@@ -131,6 +135,28 @@
    "fieldname": "published",
    "fieldtype": "Check",
    "label": "Published"
+  },
+  {
+   "fieldname": "departure_gate",
+   "fieldtype": "Link",
+   "label": "Departure Gate",
+   "options": "Airport Gates"
+  },
+  {
+   "fieldname": "section_break_jdfv",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "assigned_crew",
+   "fieldtype": "Table",
+   "label": "Assigned Crew",
+   "options": "Assigned Crew"
+  },
+  {
+   "fieldname": "arrival_gate",
+   "fieldtype": "Link",
+   "label": "Arrival Gate",
+   "options": "Airport Gates"
   }
  ],
  "has_web_view": 1,
@@ -138,7 +164,7 @@
  "is_published_field": "published",
  "is_submittable": 1,
  "links": [],
- "modified": "2025-03-13 19:41:25.164494",
+ "modified": "2025-03-23 20:33:21.402051",
  "modified_by": "Administrator",
  "module": "Airplane Mode",
  "name": "Airplane Flight",

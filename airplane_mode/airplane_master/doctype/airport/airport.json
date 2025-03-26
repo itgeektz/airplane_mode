@@ -10,7 +10,13 @@
   "column_break_uvqe",
   "city",
   "column_break_yirx",
-  "country"
+  "country",
+  "section_break_mqwb",
+  "no_of_gates",
+  "column_break_ybrs",
+  "no_of_shops",
+  "section_break_lhby",
+  "airport_gates"
  ],
  "fields": [
   {
@@ -41,11 +47,39 @@
    "in_list_view": 1,
    "label": "Country",
    "reqd": 1
+  },
+  {
+   "fieldname": "section_break_mqwb",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "no_of_gates",
+   "fieldtype": "Int",
+   "label": "No of Gates"
+  },
+  {
+   "fieldname": "column_break_ybrs",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "no_of_shops",
+   "fieldtype": "Int",
+   "label": "No of Shops"
+  },
+  {
+   "fieldname": "section_break_lhby",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "airport_gates",
+   "fieldtype": "Table",
+   "label": "Airport Gates",
+   "options": "Airport Gates"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-03-22 14:32:07.228560",
+ "modified": "2025-03-23 20:24:55.203814",
  "modified_by": "Administrator",
  "module": "Airplane Master",
  "name": "Airport",

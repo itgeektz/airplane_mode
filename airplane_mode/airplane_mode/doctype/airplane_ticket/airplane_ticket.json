@@ -13,8 +13,10 @@
   "seat",
   "section_break_hnmx",
   "source_airport_code",
+  "departure_gate",
   "column_break_hinw",
   "destination_airport_code",
+  "arrival_gate",
   "section_break_rqme",
   "add_ons",
   "section_break_qokj",
@@ -50,7 +52,8 @@
    "in_list_view": 1,
    "label": "Passenger",
    "options": "Flight Passenger",
-   "reqd": 1
+   "reqd": 1,
+   "search_index": 1
   },
   {
    "fieldname": "column_break_uqgj",
@@ -160,12 +163,25 @@
    "fieldtype": "Data",
    "label": "Seat",
    "read_only": 1
+  },
+  {
+   "fetch_from": "flight.departure_gate",
+   "fieldname": "departure_gate",
+   "fieldtype": "Data",
+   "label": "Departure Gate",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "flight.arrival_gate",
+   "fieldname": "arrival_gate",
+   "fieldtype": "Data",
+   "label": "Arrival Gate"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-03-22 14:13:35.637288",
+ "modified": "2025-03-23 20:37:07.002164",
  "modified_by": "Administrator",
  "module": "Airplane Mode",
  "name": "Airplane Ticket",

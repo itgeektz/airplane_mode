@@ -1,0 +1,116 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:{RINV}-{MM}{YY}-{#####}",
+ "creation": "2025-03-24 19:39:43.007657",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_pggj",
+  "rental_invoice",
+  "column_break_zwfv",
+  "rental_agreement",
+  "section_break_vucs",
+  "shop",
+  "aiport",
+  "amended_from",
+  "column_break_boeu",
+  "tenant",
+  "rental_expiry"
+ ],
+ "fields": [
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Rental Invoice",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "section_break_pggj",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "rental_invoice",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Rental Invoice",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "section_break_vucs",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_zwfv",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "rental_agreement",
+   "fieldtype": "Link",
+   "label": "Rental Agreement",
+   "options": "Rental Agreement",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "rental_agreement.airport",
+   "fieldname": "shop",
+   "fieldtype": "Data",
+   "label": "Shop"
+  },
+  {
+   "fieldname": "column_break_boeu",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "rental_agreement.tenant",
+   "fieldname": "tenant",
+   "fieldtype": "Data",
+   "label": "Tenant"
+  },
+  {
+   "fieldname": "aiport",
+   "fieldtype": "Data",
+   "label": "Aiport"
+  },
+  {
+   "fetch_from": "rental_agreement.end_date",
+   "fieldname": "rental_expiry",
+   "fieldtype": "Date",
+   "label": "Rental Expiry"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2025-03-25 18:56:02.895268",
+ "modified_by": "Administrator",
+ "module": "Track Shops",
+ "name": "Rental Invoice",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

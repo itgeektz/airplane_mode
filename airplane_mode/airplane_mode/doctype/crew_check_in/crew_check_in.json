@@ -1,0 +1,69 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:{DD}-{MM}-{YY}-{#######}",
+ "creation": "2025-03-23 21:48:23.546089",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "check_in_date",
+  "check_in_time",
+  "column_break_phfb",
+  "crew",
+  "crew_full_name"
+ ],
+ "fields": [
+  {
+   "fieldname": "check_in_date",
+   "fieldtype": "Date",
+   "label": "Check In Date"
+  },
+  {
+   "fieldname": "check_in_time",
+   "fieldtype": "Time",
+   "label": "Check In Time"
+  },
+  {
+   "fieldname": "column_break_phfb",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "crew",
+   "fieldtype": "Link",
+   "label": "Crew",
+   "options": "Assigned Crew"
+  },
+  {
+   "fetch_from": "crew.staff_full_name",
+   "fieldname": "crew_full_name",
+   "fieldtype": "Data",
+   "label": "Crew Full Name"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-03-23 21:57:01.714875",
+ "modified_by": "Administrator",
+ "module": "Airplane Mode",
+ "name": "Crew Check In",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

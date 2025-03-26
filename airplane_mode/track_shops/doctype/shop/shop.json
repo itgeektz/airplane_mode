@@ -1,0 +1,160 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:{airport_code}-{terminal}-{shop_number}",
+ "creation": "2025-03-24 19:36:49.380336",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "shop_number",
+  "shop_name",
+  "shop_type",
+  "column_break_ifco",
+  "rented",
+  "airport",
+  "airport_code",
+  "terminal",
+  "section_break_mmtj",
+  "width",
+  "length",
+  "column_break_hatp",
+  "size",
+  "rate_per_sqm",
+  "rent_per_month",
+  "column_break_bikz",
+  "shop_category"
+ ],
+ "fields": [
+  {
+   "fieldname": "shop_number",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Shop Number",
+   "reqd": 1
+  },
+  {
+   "fieldname": "shop_name",
+   "fieldtype": "Data",
+   "label": "Shop Name"
+  },
+  {
+   "fieldname": "column_break_ifco",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "airport",
+   "fieldtype": "Link",
+   "label": "Airport",
+   "options": "Airport",
+   "reqd": 1
+  },
+  {
+   "fieldname": "terminal",
+   "fieldtype": "Link",
+   "label": "Terminal",
+   "options": "Airport Terminal",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_mmtj",
+   "fieldtype": "Section Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "rented",
+   "fieldtype": "Check",
+   "label": "Rented"
+  },
+  {
+   "fieldname": "column_break_bikz",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_hatp",
+   "fieldtype": "Column Break",
+   "label": "Shop Size Details"
+  },
+  {
+   "fieldname": "shop_type",
+   "fieldtype": "Link",
+   "label": "Shop Type",
+   "options": "Shop Type",
+   "reqd": 1
+  },
+  {
+   "fieldname": "width",
+   "fieldtype": "Float",
+   "label": "Width (in Meter)",
+   "non_negative": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "length",
+   "fieldtype": "Float",
+   "label": "Length  (in Meter)",
+   "non_negative": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "size",
+   "fieldtype": "Float",
+   "label": "Size",
+   "non_negative": 1,
+   "precision": "2",
+   "read_only": 1
+  },
+  {
+   "fieldname": "rate_per_sqm",
+   "fieldtype": "Currency",
+   "label": "Rate per SqM",
+   "non_negative": 1,
+   "precision": "2",
+   "reqd": 1
+  },
+  {
+   "fieldname": "shop_category",
+   "fieldtype": "Table",
+   "label": "Shop Category",
+   "options": "Shop Category Tag"
+  },
+  {
+   "fieldname": "rent_per_month",
+   "fieldtype": "Currency",
+   "label": "Rent Per Month",
+   "non_negative": 1,
+   "read_only": 1
+  },
+  {
+   "fetch_from": "airport.code",
+   "fieldname": "airport_code",
+   "fieldtype": "Data",
+   "label": "Airport Code"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-03-25 19:59:42.405016",
+ "modified_by": "Administrator",
+ "module": "Track Shops",
+ "name": "Shop",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

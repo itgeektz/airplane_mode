@@ -133,13 +133,13 @@ app_license = "mit2"
 # Scheduled Tasks
 # ---------------
 
-# scheduler_events = {
+scheduler_events = {
 # 	"all": [
 # 		"airplane_mode.tasks.all"
 # 	],
-# 	"daily": [
-# 		"airplane_mode.tasks.daily"
-# 	],
+ 	"daily": [
+ 		"airplane_mode.track_shops.doctype.shop.shop.check_rental_validity"
+ 	],
 # 	"hourly": [
 # 		"airplane_mode.tasks.hourly"
 # 	],
@@ -149,7 +149,7 @@ app_license = "mit2"
 # 	"monthly": [
 # 		"airplane_mode.tasks.monthly"
 # 	],
-# }
+ }
 
 # Testing
 # -------

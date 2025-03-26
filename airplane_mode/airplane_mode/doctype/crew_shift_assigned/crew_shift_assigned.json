@@ -1,0 +1,136 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-03-23 21:43:14.872205",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_u6no",
+  "staff",
+  "flight_no",
+  "source_airport",
+  "source_gate",
+  "departure_date",
+  "departure_time",
+  "column_break_vkic",
+  "staff_full_name",
+  "airline",
+  "destination_airport",
+  "destination_gate",
+  "arrival_date",
+  "arrival_time",
+  "section_break_ljas",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_u6no",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "staff",
+   "fieldtype": "Data",
+   "label": "Staff"
+  },
+  {
+   "fieldname": "flight_no",
+   "fieldtype": "Data",
+   "label": "Flight No"
+  },
+  {
+   "fieldname": "source_airport",
+   "fieldtype": "Data",
+   "label": "Source Airport"
+  },
+  {
+   "fieldname": "source_gate",
+   "fieldtype": "Data",
+   "label": "Source Gate"
+  },
+  {
+   "fieldname": "column_break_vkic",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "staff_full_name",
+   "fieldtype": "Data",
+   "label": "Staff Full Name"
+  },
+  {
+   "fieldname": "airline",
+   "fieldtype": "Data",
+   "label": "Airline"
+  },
+  {
+   "fieldname": "destination_airport",
+   "fieldtype": "Data",
+   "label": "Destination Airport"
+  },
+  {
+   "fieldname": "destination_gate",
+   "fieldtype": "Data",
+   "label": "Destination Gate"
+  },
+  {
+   "fieldname": "departure_date",
+   "fieldtype": "Date",
+   "label": "Departure Date"
+  },
+  {
+   "fieldname": "arrival_date",
+   "fieldtype": "Date",
+   "label": "Arrival Date"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Crew Shift Assigned",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "departure_time",
+   "fieldtype": "Time",
+   "label": "Departure Time"
+  },
+  {
+   "fieldname": "arrival_time",
+   "fieldtype": "Time",
+   "label": "Arrival Time"
+  },
+  {
+   "fieldname": "section_break_ljas",
+   "fieldtype": "Section Break"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2025-03-23 21:47:45.739916",
+ "modified_by": "Administrator",
+ "module": "Airplane Mode",
+ "name": "Crew Shift Assigned",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
