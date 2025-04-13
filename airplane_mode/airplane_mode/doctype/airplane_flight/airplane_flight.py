@@ -122,7 +122,7 @@ def crew_checkin(self,crew):
 	if removed:
 		for r in removed:
 			if frappe.get_value("Crew Check In",filters={"crew":r},fields=['check_in_time']):
-				frappe.throw("This is employee is already signed in for this flight. Please shift the attendance or inform the Staff")
+				frappe.throw("This employee is already signed in for this flight. Please shift the attendance or inform the Staff")
 			frappe.db.delete("Crew Check In",filters={"crew":r})
 
 	
