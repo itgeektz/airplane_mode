@@ -1,0 +1,189 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "hash",
+ "creation": "2025-03-26 20:30:04.673315",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "row_items_section",
+  "invoice_item",
+  "column_break_ukhf",
+  "invoice_qty",
+  "column_break_svvn",
+  "unit",
+  "column_break_lvqp",
+  "rate",
+  "column_break_bpmf",
+  "total",
+  "column_break_vjek",
+  "total_amount",
+  "section_break_anjd",
+  "tax",
+  "added_tax",
+  "inclusive_tax",
+  "agreement_reference",
+  "agreement_start_date",
+  "agreement_end_date",
+  "price_list",
+  "column_break_lmsf",
+  "discount_type",
+  "discount",
+  "discounted_amount",
+  "discount_approved_by",
+  "discounting_notes"
+ ],
+ "fields": [
+  {
+   "fetch_from": "agreement_reference.shop",
+   "fieldname": "invoice_item",
+   "fieldtype": "Link",
+   "label": "Invoice Item",
+   "options": "Item"
+  },
+  {
+   "fieldname": "column_break_ukhf",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_svvn",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_lvqp",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_bpmf",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "invoice_qty",
+   "fieldtype": "Int",
+   "label": "Invoice Qty"
+  },
+  {
+   "default": "Sq.M",
+   "fieldname": "unit",
+   "fieldtype": "Select",
+   "label": "Unit",
+   "options": "\nSq.M\nNo.\nMeter\nBox"
+  },
+  {
+   "fieldname": "rate",
+   "fieldtype": "Currency",
+   "label": "Rate"
+  },
+  {
+   "fieldname": "total",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Amount",
+   "non_negative": 1
+  },
+  {
+   "fieldname": "section_break_anjd",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "tax",
+   "fieldtype": "Percent",
+   "label": "Tax Applicable"
+  },
+  {
+   "fieldname": "agreement_reference",
+   "fieldtype": "Link",
+   "label": "Agreement Reference",
+   "options": "Rental Agreement"
+  },
+  {
+   "fetch_from": "agreement_reference.start_date",
+   "fieldname": "agreement_start_date",
+   "fieldtype": "Date",
+   "label": "Agreement Start Date"
+  },
+  {
+   "fetch_from": "agreement_reference.end_date",
+   "fieldname": "agreement_end_date",
+   "fieldtype": "Date",
+   "label": "Agreement End Date"
+  },
+  {
+   "fieldname": "column_break_lmsf",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "discount_type",
+   "fieldtype": "Select",
+   "label": "Discount Type",
+   "options": "\nPercentage\nIn Amount\nNil"
+  },
+  {
+   "fieldname": "discount",
+   "fieldtype": "Float",
+   "label": "Discount"
+  },
+  {
+   "fieldname": "discount_approved_by",
+   "fieldtype": "Link",
+   "label": "Discount Approved By",
+   "options": "User"
+  },
+  {
+   "fieldname": "discounting_notes",
+   "fieldtype": "Small Text",
+   "label": "Discounting Notes"
+  },
+  {
+   "fieldname": "discounted_amount",
+   "fieldtype": "Currency",
+   "label": "Discounted Amount"
+  },
+  {
+   "fieldname": "added_tax",
+   "fieldtype": "Currency",
+   "label": "Added Tax"
+  },
+  {
+   "fieldname": "inclusive_tax",
+   "fieldtype": "Currency",
+   "label": "Inclusive Tax"
+  },
+  {
+   "fieldname": "column_break_vjek",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "total_amount",
+   "fieldtype": "Currency",
+   "label": "Total Amount",
+   "non_negative": 1
+  },
+  {
+   "fieldname": "row_items_section",
+   "fieldtype": "Section Break",
+   "label": "Row Items"
+  },
+  {
+   "fieldname": "price_list",
+   "fieldtype": "Link",
+   "label": "Price List",
+   "options": "Price List"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-04-07 10:36:25.020292",
+ "modified_by": "Administrator",
+ "module": "Track Shops",
+ "name": "Rental Invoice Patricular",
+ "naming_rule": "Random",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

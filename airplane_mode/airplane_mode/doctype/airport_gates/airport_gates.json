@@ -1,6 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "format:{airport_code}-{terminal}-{gate_number}",
  "creation": "2025-03-23 20:19:11.666049",
  "doctype": "DocType",
  "editable_grid": 1,
@@ -9,19 +10,22 @@
   "gate_number",
   "column_break_zsbt",
   "airport",
+  "terminal",
   "column_break_qnln",
   "status",
   "section_break_xvie",
   "flight_charted",
   "column_break_khqx",
-  "in__out"
+  "in__out",
+  "airport_code"
  ],
  "fields": [
   {
    "fieldname": "gate_number",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Gate Number"
+   "label": "Gate Number",
+   "reqd": 1
   },
   {
    "fieldname": "column_break_zsbt",
@@ -29,9 +33,10 @@
   },
   {
    "fieldname": "airport",
-   "fieldtype": "Data",
+   "fieldtype": "Link",
    "in_list_view": 1,
-   "label": "Airport"
+   "label": "Airport",
+   "options": "Airport"
   },
   {
    "fieldname": "column_break_qnln",
@@ -39,9 +44,10 @@
   },
   {
    "fieldname": "status",
-   "fieldtype": "Data",
+   "fieldtype": "Select",
    "in_list_view": 1,
-   "label": "Status"
+   "label": "Status",
+   "options": "\nOpen\nClosed\nUnder Maintenance\nAvailable\nNot Available"
   },
   {
    "fieldname": "section_break_xvie",
@@ -49,8 +55,9 @@
   },
   {
    "fieldname": "flight_charted",
-   "fieldtype": "Data",
-   "label": "Flight Charted"
+   "fieldtype": "Link",
+   "label": "Flight Charted",
+   "options": "Airplane Flight"
   },
   {
    "fieldname": "column_break_khqx",
@@ -60,16 +67,28 @@
    "fieldname": "in__out",
    "fieldtype": "Data",
    "label": "IN / OUT"
+  },
+  {
+   "fieldname": "airport_code",
+   "fieldtype": "Data",
+   "label": "Airport Code"
+  },
+  {
+   "fieldname": "terminal",
+   "fieldtype": "Link",
+   "label": "Terminal",
+   "options": "Airport Terminal"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2025-03-23 20:27:33.061199",
+ "modified": "2025-04-12 23:02:19.151797",
  "modified_by": "Administrator",
  "module": "Airplane Mode",
  "name": "Airport Gates",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [],
  "sort_field": "modified",

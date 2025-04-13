@@ -1,7 +1,8 @@
 {
  "actions": [],
+ "allow_guest_to_view": 1,
  "allow_rename": 1,
- "autoname": "format:{airport_code}-{terminal}-{shop_number}",
+ "autoname": "format:{airport_code}-T{terminal}-SH{shop_number}",
  "creation": "2025-03-24 19:36:49.380336",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -17,12 +18,15 @@
   "section_break_mmtj",
   "width",
   "length",
+  "price_list",
   "column_break_hatp",
   "size",
   "rate_per_sqm",
   "rent_per_month",
   "column_break_bikz",
-  "shop_category"
+  "shop_category",
+  "route",
+  "published"
  ],
  "fields": [
   {
@@ -78,6 +82,7 @@
    "fieldname": "shop_type",
    "fieldtype": "Link",
    "label": "Shop Type",
+   "link_filters": "[[\"Shop Type\",\"enabled\",\"=\",1]]",
    "options": "Shop Type",
    "reqd": 1
   },
@@ -118,6 +123,7 @@
    "options": "Shop Category Tag"
   },
   {
+   "fetch_from": "price_list.price_list",
    "fieldname": "rent_per_month",
    "fieldtype": "Currency",
    "label": "Rent Per Month",
@@ -129,12 +135,32 @@
    "fieldname": "airport_code",
    "fieldtype": "Data",
    "label": "Airport Code"
+  },
+  {
+   "fieldname": "price_list",
+   "fieldtype": "Link",
+   "label": "Price List",
+   "options": "Price List",
+   "reqd": 1
+  },
+  {
+   "fieldname": "route",
+   "fieldtype": "Data",
+   "label": "Route"
+  },
+  {
+   "default": "0",
+   "fieldname": "published",
+   "fieldtype": "Check",
+   "label": "Published"
   }
  ],
  "grid_page_length": 50,
+ "has_web_view": 1,
  "index_web_pages_for_search": 1,
+ "is_published_field": "published",
  "links": [],
- "modified": "2025-03-25 19:59:42.405016",
+ "modified": "2025-04-11 20:30:56.061060",
  "modified_by": "Administrator",
  "module": "Track Shops",
  "name": "Shop",
@@ -154,7 +180,11 @@
    "write": 1
   }
  ],
+ "route": "airportshops",
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": []
+ "states": [],
+ "track_changes": 1,
+ "track_seen": 1,
+ "track_views": 1
 }

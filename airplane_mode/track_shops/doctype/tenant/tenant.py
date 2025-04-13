@@ -6,6 +6,5 @@ from frappe.model.document import Document
 
 
 class Tenant(Document):
-	def before_save(self):
-		self.tenant_id = self.name
+	pass
 	

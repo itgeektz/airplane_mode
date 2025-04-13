@@ -130,6 +130,14 @@ app_license = "mit2"
 # 	}
 # }
 
+doc_events = {
+ 	"Shop": {
+ 		"on_update": "airplane_mode.track_shops.doctype.shop.shop.update_shop_tally",
+# 		"on_cancel": "method",
+# 		"on_trash": "method"
+	}
+ }
+
 # Scheduled Tasks
 # ---------------
 
@@ -231,29 +239,32 @@ fixtures = [
     {
         "dt":"Airplane Ticket Add-on Type"
     },
-    {
-        "dt":"Flight Passenger"
-
-    },
-    {
-        "dt":"Airplane Flight"
-
-    },
-     {
-        "dt":"Airplane Ticket"
-
-    },
      {
         "dt":"Airport"
 
     },
-     {
-        "dt":"Airplane"
-
-    },
-     {
+     
+    {
         "dt":"Airline"
 
+    },
+    {
+        "dt":"Shop Type"
+    },
+    {
+        "dt":"Shop Category"
+    },
+    {
+        "dt":"Designation"
+
+    },
+    {
+        "dt":"Airport Terminal"
+        
+    },
+    {
+        "dt":"Department"
+        
     }
 
 ]

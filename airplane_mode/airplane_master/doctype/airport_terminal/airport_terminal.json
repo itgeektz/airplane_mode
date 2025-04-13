@@ -27,7 +27,7 @@
   },
   {
    "fieldname": "terminal",
-   "fieldtype": "Data",
+   "fieldtype": "Int",
    "label": "Terminal",
    "unique": 1
   }
@@ -36,7 +36,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-03-25 19:23:55.993471",
+ "modified": "2025-04-02 21:04:42.627392",
  "modified_by": "Administrator",
  "module": "Airplane Master",
  "name": "Airport Terminal",

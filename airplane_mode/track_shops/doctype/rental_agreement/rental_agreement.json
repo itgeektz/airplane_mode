@@ -9,13 +9,17 @@
   "shop",
   "start_date",
   "status",
+  "price_list",
   "column_break_lgmz",
   "tenant",
   "end_date",
+  "payment_intervals",
+  "rent_reminder",
   "section_break_eexr",
   "shop_rate",
   "shop_size",
   "rental_amount",
+  "tenant_email",
   "column_break_tjyc",
   "airport",
   "airport_code",
@@ -127,13 +131,38 @@
    "label": "Status",
    "options": "\nOpen\nValid\nExpired\nCancelled\nTerminated",
    "reqd": 1
+  },
+  {
+   "fetch_from": "tenant.tenant_email",
+   "fieldname": "tenant_email",
+   "fieldtype": "Data",
+   "label": "Tenant Email",
+   "options": "Email"
+  },
+  {
+   "fieldname": "payment_intervals",
+   "fieldtype": "Select",
+   "label": "Payment Intervals",
+   "options": "\nYearly\nHalf Yearly\nQuarterly\nMonthly"
+  },
+  {
+   "default": "0",
+   "fieldname": "rent_reminder",
+   "fieldtype": "Check",
+   "label": "Rent Reminder"
+  },
+  {
+   "fetch_from": "shop.price_list",
+   "fieldname": "price_list",
+   "fieldtype": "Data",
+   "label": "Price List"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-03-25 20:01:52.388651",
+ "modified": "2025-04-03 22:07:00.466788",
  "modified_by": "Administrator",
  "module": "Track Shops",
  "name": "Rental Agreement",

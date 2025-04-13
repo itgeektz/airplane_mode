@@ -15,6 +15,8 @@
   "no_of_gates",
   "column_break_ybrs",
   "no_of_shops",
+  "shops_rented",
+  "shops_available",
   "section_break_lhby",
   "airport_gates"
  ],
@@ -55,7 +57,8 @@
   {
    "fieldname": "no_of_gates",
    "fieldtype": "Int",
-   "label": "No of Gates"
+   "label": "No of Gates",
+   "non_negative": 1
   },
   {
    "fieldname": "column_break_ybrs",
@@ -75,11 +78,21 @@
    "fieldtype": "Table",
    "label": "Airport Gates",
    "options": "Airport Gates"
+  },
+  {
+   "fieldname": "shops_rented",
+   "fieldtype": "Int",
+   "label": "Shops Rented"
+  },
+  {
+   "fieldname": "shops_available",
+   "fieldtype": "Int",
+   "label": "Shops Available"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-03-23 20:24:55.203814",
+ "modified": "2025-04-12 22:41:59.348000",
  "modified_by": "Administrator",
  "module": "Airplane Master",
  "name": "Airport",
@@ -140,5 +153,6 @@
  ],
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": []
+ "states": [],
+ "track_changes": 1
 }

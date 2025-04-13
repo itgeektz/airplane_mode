@@ -4,12 +4,36 @@
 frappe.ui.form.on("Airplane Flight", {
  	onload(frm) {
         set_filters(frm);
+       
     
 	},
+
+    refresh(frm) {
+        frm.set_query("departure_gate", function () {
+            return {
+               filters: {
+                   'parent': frm.doc.source_airport,
+                   'status': 'Available'
+                }
+           };
+        });
+
+        frm.set_query("arrival_gate", function () {
+            return {
+               filters: {
+                   'parent': frm.doc.detination_airport,
+                   'status': 'Available'
+                }
+           };
+        });
+       
+    }
  });
 
+
+
 /*
- frm.set_query('Assigned Crew', function () {
+ frm.set_query('Airplane Flight', function () {
     frm.fields_dict["Assigned Crew"].grid.get_field("staff_assigned").get_query = function(doc){
     return {
         filters:{
@@ -18,15 +42,9 @@ frappe.ui.form.on("Airplane Flight", {
     }
  }
 });
- /*
- frm.set_query("staff_assigned", "assigned_crew", function (doc, cdt, cdn) {
-    return {
-       filters: {
-           // 'designation': frm.doc.assigned_crew_role,
-        }
-   };
-});
+ */
  
+ /*
  frm.set_query('Assigned Crew Staff Assigned', function () {
     return {
         filters: {

@@ -21,11 +21,13 @@ class RentalAgreement(Document):
 	def on_submit(self):
 		if self.status == "Valid":
 			frappe.db.set_value("Shop",self.shop,'rented',1)
+			self.rent_reminder = frappe.db.get_single_value("Rent Reminder",'rent_reminder')
 
 	def before_save(self):
 		if self.rental_amount <= 0:
-			rent_per_month = frappe.get_value("Shop",self.shop,'rent_per_month')
-			frappe.db.set_value("Rental Agreement",self.name,'rental_amount',rent_per_month)
+			self.rental_amount = frappe.get_value("Shop",self.shop,'rent_per_month')
+	def on_update(self):
+		self.rent_reminder = frappe.db.get_single_value("Rent Reminder")
 
 
 

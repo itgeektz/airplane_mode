@@ -7,16 +7,34 @@
  "engine": "InnoDB",
  "field_order": [
   "section_break_pggj",
-  "rental_invoice",
-  "column_break_zwfv",
   "rental_agreement",
-  "section_break_vucs",
   "shop",
-  "aiport",
-  "amended_from",
-  "column_break_boeu",
+  "invoice_date",
+  "due_date",
+  "column_break_zwfv",
   "tenant",
-  "rental_expiry"
+  "aiport",
+  "rental_expiry",
+  "price_list",
+  "section_break_entv",
+  "bill",
+  "section_break_dbey",
+  "column_break_wzkn",
+  "total_amount",
+  "column_break_ezwm",
+  "total_discount",
+  "column_break_xyng",
+  "amount_after_discount",
+  "column_break_mpqe",
+  "total_tax",
+  "column_break_hxuu",
+  "tax_applied_amount",
+  "section_break_pmhd",
+  "tenant_email",
+  "column_break_xcyv",
+  "total_qty",
+  "column_break_vwgm",
+  "amended_from"
  ],
  "fields": [
   {
@@ -34,45 +52,33 @@
    "fieldtype": "Section Break"
   },
   {
-   "fieldname": "rental_invoice",
-   "fieldtype": "Data",
-   "in_list_view": 1,
-   "label": "Rental Invoice",
-   "reqd": 1,
-   "search_index": 1
-  },
-  {
-   "fieldname": "section_break_vucs",
-   "fieldtype": "Section Break"
-  },
-  {
    "fieldname": "column_break_zwfv",
    "fieldtype": "Column Break"
   },
   {
    "fieldname": "rental_agreement",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Rental Agreement",
    "options": "Rental Agreement",
    "reqd": 1
   },
   {
-   "fetch_from": "rental_agreement.airport",
+   "fetch_from": "rental_agreement.shop",
    "fieldname": "shop",
    "fieldtype": "Data",
-   "label": "Shop"
-  },
-  {
-   "fieldname": "column_break_boeu",
-   "fieldtype": "Column Break"
+   "label": "Shop",
+   "reqd": 1
   },
   {
    "fetch_from": "rental_agreement.tenant",
    "fieldname": "tenant",
    "fieldtype": "Data",
-   "label": "Tenant"
+   "label": "Tenant",
+   "reqd": 1
   },
   {
+   "fetch_from": "rental_agreement.airport",
    "fieldname": "aiport",
    "fieldtype": "Data",
    "label": "Aiport"
@@ -82,13 +88,123 @@
    "fieldname": "rental_expiry",
    "fieldtype": "Date",
    "label": "Rental Expiry"
+  },
+  {
+   "fieldname": "section_break_pmhd",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "section_break_entv",
+   "fieldtype": "Section Break",
+   "label": "Rental Invoice Particulars"
+  },
+  {
+   "fieldname": "bill",
+   "fieldtype": "Table",
+   "label": "Bill",
+   "options": "Rental Invoice Patricular",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_xcyv",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_vwgm",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_dbey",
+   "fieldtype": "Section Break",
+   "label": "Totals"
+  },
+  {
+   "fieldname": "column_break_wzkn",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "total_amount",
+   "fieldtype": "Currency",
+   "label": "Total Amount"
+  },
+  {
+   "fieldname": "column_break_mpqe",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "total_tax",
+   "fieldtype": "Currency",
+   "label": "Total Tax",
+   "non_negative": 1
+  },
+  {
+   "fieldname": "column_break_hxuu",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "tax_applied_amount",
+   "fieldtype": "Currency",
+   "label": "Amount (Tax Inclusive)",
+   "non_negative": 1
+  },
+  {
+   "fieldname": "column_break_ezwm",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "total_discount",
+   "fieldtype": "Currency",
+   "label": "Total Discount",
+   "non_negative": 1
+  },
+  {
+   "fetch_from": "rental_agreement.tenant_email",
+   "fieldname": "tenant_email",
+   "fieldtype": "Data",
+   "label": "Tenant Email",
+   "options": "Email",
+   "reqd": 1
+  },
+  {
+   "fieldname": "invoice_date",
+   "fieldtype": "Date",
+   "label": "Invoice Date",
+   "options": "Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "total_qty",
+   "fieldtype": "Float",
+   "label": "Total Qty"
+  },
+  {
+   "fieldname": "column_break_xyng",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "amount_after_discount",
+   "fieldtype": "Currency",
+   "label": "Amount After Discount",
+   "non_negative": 1
+  },
+  {
+   "fieldname": "due_date",
+   "fieldtype": "Date",
+   "label": "Due Date",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "rental_agreement.price_list",
+   "fieldname": "price_list",
+   "fieldtype": "Data",
+   "label": "Price List"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-03-25 18:56:02.895268",
+ "modified": "2025-04-07 10:35:36.148284",
  "modified_by": "Administrator",
  "module": "Track Shops",
  "name": "Rental Invoice",

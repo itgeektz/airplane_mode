@@ -1,0 +1,30 @@
+{% extends "templates/shop/base.html" %}
+
+{% block body %}
+<h2>Shop Details</h2>
+<h2>{{ title }}</h2>
+<div class="flex">
+    <div>
+        <div>
+            <p><strong>Name:</strong> {{ doc.name }}</p>
+            <p><strong>Availablity:</strong>{% if doc.rented == 0 %}
+                Yes..
+            
+            {% else %}
+                No
+            {% endif %}</p>
+            <p><strong>Type:</strong> {{doc.shop_type}}</p>
+            <p><strong>Airport:</strong> {{ doc.airport }}</p>
+            <p><strong>Terminal:</strong> {{ doc.terminal }}</p>
+            <p><strong>Shop Size:</strong> {{ doc.size }} Sq.M.</p>
+            <p>{% if doc.rented == 0 %}
+             
+            <a class="button" href="http://airplane.localhost/shop-lead/new?shop_name={{ doc.name }}&airport={{ doc.airport }}">Shop Enquiry</a>
+            {% else %}
+                Not Available
+            {% endif %}
+            </p>
+        </div>
+    </div>
+{% endblock %}
+

@@ -1,0 +1,92 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:{shop_name}-{DD}{MM}{YY}",
+ "creation": "2025-04-12 14:26:39.321463",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "shop_name",
+  "airport",
+  "enquired_by",
+  "mobile_number",
+  "email",
+  "any_comments",
+  "addressed_by",
+  "status"
+ ],
+ "fields": [
+  {
+   "fieldname": "shop_name",
+   "fieldtype": "Link",
+   "label": "Shop Name",
+   "options": "Shop"
+  },
+  {
+   "fieldname": "airport",
+   "fieldtype": "Link",
+   "label": "Airport",
+   "options": "Airport"
+  },
+  {
+   "fieldname": "enquired_by",
+   "fieldtype": "Data",
+   "label": "Enquired By"
+  },
+  {
+   "fieldname": "mobile_number",
+   "fieldtype": "Data",
+   "label": "Mobile Number",
+   "options": "Phone"
+  },
+  {
+   "fieldname": "email",
+   "fieldtype": "Data",
+   "label": "Email",
+   "options": "Email"
+  },
+  {
+   "fieldname": "any_comments",
+   "fieldtype": "Long Text",
+   "label": "Any comments"
+  },
+  {
+   "fieldname": "addressed_by",
+   "fieldtype": "Data",
+   "label": "Addressed by"
+  },
+  {
+   "default": "Enquiry",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Enquiry\nResponded\nNo Outcome\nNo response\nFreeze\nConverted to Tenant"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-04-12 14:45:56.369762",
+ "modified_by": "Administrator",
+ "module": "Track Shops",
+ "name": "Shop Lead",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

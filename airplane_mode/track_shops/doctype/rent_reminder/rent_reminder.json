@@ -1,0 +1,43 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-03-28 22:35:45.062006",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "rent_reminder"
+ ],
+ "fields": [
+  {
+   "default": "0",
+   "fieldname": "rent_reminder",
+   "fieldtype": "Check",
+   "label": "Rent Reminder"
+  }
+ ],
+ "grid_page_length": 50,
+ "in_create": 1,
+ "index_web_pages_for_search": 1,
+ "issingle": 1,
+ "links": [],
+ "modified": "2025-03-28 22:36:14.789059",
+ "modified_by": "Administrator",
+ "module": "Track Shops",
+ "name": "Rent Reminder",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
