@@ -51,49 +51,36 @@ def check_rental_validity():
 				sender = "notifications@example.com"
 				recipients = [
 				frappe.get_cached_value("Tenant", agr["tenant"], "tenant_email"),
-				'nidhin.regency@gmail.com'
 				]
 				subject="Rental Reminder for: {0} agreement ending at: {1}".format(shop.name, agr["end_date"])
 				header = 'Rental Expiry Reminder'
 				if agr.end_date == today:
-					frappe.db.set_value("Rental Agreement", agr.name, "status", "Expired")
-					frappe.db.set_value("Shop", shop.name, "rented", 0)
-					update_shop_tally(shop)
-					message = "Dear Tenant, \n " \
-					"The Rental agreement between Airport and you has been Expired." \
-					"If you are already done the procedure to renew it will be updated so." \
-					"In that case please ignore the email" \
-					"It is pleasure to do Business with you" \
-					"Regards" \
-					"" \
-					"Airport Management"
-					frappe.sendmail(
+					message = """Dear Tenant,<br>
+								The rental agreement between Airport and you has expired.<br>
+								If you have already completed the renewal procedure, it will be updated accordingly.<br>
+								In that case, please ignore this email.<br>
+								<br>
+								It is a pleasure to do business with you.<br><br>
+								Regards,<br>
+								Airport Management
+							"""
+					comment_text = "Rental Expiry Reminder sent"
+				elif date_diff(getdate(agr["end_date"]), today) < 7:
+					message = """Dear Tenant,<br>
+								Please consider this as a reminder for the upcoming expiry of the agreement between Airport and you.<br>
+								Please take the necessary action.<br><br>
+								Regards,<br>
+								Airport Management
+							"""
+					comment_text = "Rental Expiry Reminder before 7 Days sent"
+				frappe.sendmail(
 						recipients=recipients,
 						sender=sender,
 						subject=subject,
-						args=dict(
-							message=message,
-						),
+						message=message,
 						header = header
 					)
-					add_comment("Shop", shop.name, "Rental Expiry Reminder sent", comment_by='Auto Update')
-				elif date_diff(getdate(agr["end_date"]), today) < 7:
-					message = "Dear Tenant, \n " \
-					"Please consider this as reminder for upcoming expiry of the agreement between Airport and you." \
-					" Please take the necessary action" \
-					"Regards" \
-					"" \
-					"Airport Management"
-					frappe.sendmail(
-					recipients=recipients,
-					sender=sender,
-					subject=subject,
-					args=dict(
-						message=message,
-					),
-					header = header
-				)
-				add_comment("Shop", shop.name, "Rental Expiry Reminder before 7 Days sent", comment_by='Auto Update')
+				add_comment("Shop", shop.name, comment_text, comment_by='Auto Update')
 			frappe.db.commit()				
 	
 def add_comment(reference_doctype, reference_name, comment_text, comment_by=None):

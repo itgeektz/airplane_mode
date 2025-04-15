@@ -11,7 +11,7 @@ class AirplaneFlight(WebsiteGenerator):
 		if self.assigned_crew:
 			for crew in self.assigned_crew:
 				update_crew_timings(self,crew)
-				crew_checkin(self,crew)
+				crew_checkin(self)
 		departure_gate = frappe.get_doc("Airport Gates",self.departure_gate)
 		arrival_gate = frappe.get_doc("Airport Gates",self.arrival_gate)
 		if not departure_gate.flight_charted:
@@ -30,11 +30,11 @@ class AirplaneFlight(WebsiteGenerator):
 				frappe.throw("The Arrival Gate is not Available")
 		elif arrival_gate.flight_charted != self.name:
 			frappe.throw("The Arrival Gate is already booked for another flight")
-		frappe.db.commit()
+		
 	def on_update(self):
 		if self.assigned_crew:
 			for crew in self.assigned_crew:
-				crew_checkin(self,crew)
+				crew_checkin(self)
 				if (crew.assigned_date != self.date_of_departure or 
 					crew.assigned_in_time != self.time_of_departure or
 					crew.duration_on_air != self.duration):
@@ -61,7 +61,7 @@ class AirplaneFlight(WebsiteGenerator):
 			if self.arrival_gate and self.arrival_gate != ticket.arrival_gate:
 				frappe.db.set_value("Airplane Ticket",ticket.name,'arrival_gate',self.arrival_gate)
 				
-		frappe.db.commit()
+		
 			
 	def on_submit(self):
 		if f"{self.date_of_departure} {self.time_of_departure}" > now()  or self.status == 'Scheduled':
@@ -92,12 +92,10 @@ class AirplaneFlight(WebsiteGenerator):
 		frappe.db.set_value("Airport Gates",self.arrival_gate,'status','Available')
 		frappe.db.set_value("Airport Gates",self.departure_gate,'flight_charted',"")
 		frappe.db.set_value("Airport Gates",self.departure_gate,'status','Available')
-		frappe.db.commit()
 
 
 def update_crew_timings(self,crew):
 	"""Update crew timings based on flight details."""
-	time_format = "%d-%m-%Y %H:%M:%S"
 	tod = datetime.strptime(str(self.time_of_departure), "%H:%M:%S").time()
 	dod = datetime.strptime(self.date_of_departure,"%Y-%m-%d").date()
 	cdtd = datetime.combine(dod,tod)
@@ -109,21 +107,42 @@ def update_crew_timings(self,crew):
 	crew.duration_on_air = self.duration
 	crew.assigned_end_time = aot
 		#crew.save(ignore_permissions=True)
-def crew_checkin(self,crew):
-	check_in = frappe.get_all("Crew Check In",filters={"check_in_flight":self.name},fields=["crew"])
-	crew = frappe.get_all("Assigned Crew",filters={"parent":self.name},fields=["staff_assigned"])
-	added = list(set(crew) - set(check_in))
-	removed = list(set(check_in) - set(crew))
-	if added:
-		for a in added:
-			crew_check_in = frappe.new_doc("Crew Check In")
-			crew_check_in.crew = a
-			crew_check_in.flight_assigned = self.name
-	if removed:
-		for r in removed:
-			if frappe.get_value("Crew Check In",filters={"crew":r},fields=['check_in_time']):
-				frappe.throw("This employee is already signed in for this flight. Please shift the attendance or inform the Staff")
-			frappe.db.delete("Crew Check In",filters={"crew":r})
+def crew_checkin(self):
+	# Cache DB values once
+	existing_checkins = frappe.get_all("Crew Check In", filters={"check_in_flight": self.name}, pluck="crew")
+	assigned_crew = []
+	for crew in self.assigned_crew:
+		assigned_crew.append(crew.staff_assigned)
+
+
+	# Determine changes
+	to_add = list(set(assigned_crew) - set(existing_checkins))
+	to_remove =  list(set(existing_checkins) - set(assigned_crew))
+
+	# Add new crew check-ins
+	for crew_id in to_add:
+		frappe.get_doc({
+			"doctype": "Crew Check In",
+			"crew": crew_id,
+			"check_in_flight": self.name
+		}).insert(ignore_permissions=True)
+
+	# Only try to delete if not checked-in (idempotency)
+	for crew_id in to_remove:
+		check_in_time = frappe.get_value("Crew Check In", {
+			"crew": crew_id,
+			"check_in_flight": self.name
+		}, "check_in_time")
+
+		if check_in_time:
+			frappe.throw(f"Crew {crew_id} already signed in. Please review attendance manually.")
+		
+		# Safe to delete
+		frappe.db.delete("Crew Check In", {
+			"crew": crew_id,
+			"check_in_flight": self.name
+		})
+
 
 	
 

@@ -31,7 +31,7 @@
    "options": "Employee"
   },
   {
-   "fetch_from": "crew.staff_full_name",
+   "fetch_from": "crew.full_name",
    "fieldname": "crew_full_name",
    "fieldtype": "Data",
    "label": "Crew Full Name"
@@ -49,14 +49,14 @@
   },
   {
    "fieldname": "working_hours",
-   "fieldtype": "Time",
+   "fieldtype": "Duration",
    "label": "Working Hours"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-04-13 22:02:16.183638",
+ "modified": "2025-04-14 21:17:40.185550",
  "modified_by": "Administrator",
  "module": "Airplane Mode",
  "name": "Crew Check In",

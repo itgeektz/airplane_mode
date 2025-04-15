@@ -37,8 +37,6 @@ def get_columns():
 	]
 	return columns
 
-import frappe
-from frappe.query_builder.functions import Sum, Date
 
 def get_data(airline):
     AirplaneTicket = frappe.qb.DocType("Airplane Ticket") 
@@ -64,7 +62,7 @@ def get_data(airline):
     )
 
     tickets = query.run(as_dict=True)
-    
+    frappe.msgprint("This is tickets {0}".format(tickets))
     return tickets
 
 	

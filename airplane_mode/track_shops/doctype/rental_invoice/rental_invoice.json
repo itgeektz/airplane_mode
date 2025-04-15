@@ -13,7 +13,7 @@
   "due_date",
   "column_break_zwfv",
   "tenant",
-  "aiport",
+  "airport",
   "rental_expiry",
   "price_list",
   "section_break_entv",
@@ -76,12 +76,6 @@
    "fieldtype": "Data",
    "label": "Tenant",
    "reqd": 1
-  },
-  {
-   "fetch_from": "rental_agreement.airport",
-   "fieldname": "aiport",
-   "fieldtype": "Data",
-   "label": "Aiport"
   },
   {
    "fetch_from": "rental_agreement.end_date",
@@ -198,13 +192,19 @@
    "fieldname": "price_list",
    "fieldtype": "Data",
    "label": "Price List"
+  },
+  {
+   "fetch_from": "rental_agreement.airport",
+   "fieldname": "airport",
+   "fieldtype": "Data",
+   "label": "Airport"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-04-07 10:35:36.148284",
+ "modified": "2025-04-15 18:02:30.842361",
  "modified_by": "Administrator",
  "module": "Track Shops",
  "name": "Rental Invoice",
