@@ -1,7 +1,7 @@
 {
  "attach_print": 0,
  "channel": "Email",
- "condition": "",
+ "condition": "doc.status == \"Valid\"",
  "creation": "2025-03-26 20:18:14.852329",
  "date_changed": "end_date",
  "days_in_advance": 7,
@@ -14,7 +14,7 @@
  "is_standard": 1,
  "message": "<p>Add your message here</p>\n",
  "message_type": "Markdown",
- "modified": "2025-03-28 22:42:59.034040",
+ "modified": "2025-04-23 08:58:25.939376",
  "modified_by": "Administrator",
  "module": "Track Shops",
  "name": "Rental Agreement Expiry Reminder",

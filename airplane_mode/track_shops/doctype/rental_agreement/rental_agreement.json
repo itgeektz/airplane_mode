@@ -84,7 +84,7 @@
   {
    "fetch_from": "shop.rate_per_sqm",
    "fieldname": "shop_rate",
-   "fieldtype": "Data",
+   "fieldtype": "Int",
    "label": "Shop Rate",
    "read_only": 1,
    "reqd": 1
@@ -92,7 +92,7 @@
   {
    "fetch_from": "shop.size",
    "fieldname": "shop_size",
-   "fieldtype": "Data",
+   "fieldtype": "Int",
    "label": "Shop Size",
    "read_only": 1,
    "reqd": 1
@@ -162,7 +162,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-04-03 22:07:00.466788",
+ "modified": "2025-04-16 11:28:10.435554",
  "modified_by": "Administrator",
  "module": "Track Shops",
  "name": "Rental Agreement",

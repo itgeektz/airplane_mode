@@ -4,6 +4,7 @@
 import frappe
 from frappe.website.website_generator import WebsiteGenerator
 from frappe.utils import date_diff, nowdate,getdate
+from airplane_mode.utility import add_comment
 
 
 class Shop(WebsiteGenerator):
@@ -43,11 +44,17 @@ def check_rental_validity():
 										fields=['name','status','start_date','end_date','tenant']
 										)
 		if not agreements:
-			frappe.db.set_value("Shop", shop.name, "rented", 0)
-			update_shop_tally(shop)
-			frappe.db.comit()
-		else:
-			for agr in agreements:
+			return
+		for agr in agreements:
+			if agr.end_date < today:
+				frappe.db.set_value("Rental Agreement",agr.name,'status','Expired')
+				frappe.db.set_value("Rental Agreement",agr.name,'rent_reminder',0)
+				frappe.db.set_value("Shop", shop.name, "rented", 0)
+				update_shop_tally(shop)
+				add_comment("Shop", shop.name, "The Agreement Expired on {}".format(agr.end_date), comment_by='Auto Update')
+				add_comment("Rental Agreement", agr.name, "The Agreement Expired on {}".format(agr.end_date), comment_by='Auto Update')
+				frappe.db.commit()
+			else:
 				sender = "notifications@example.com"
 				recipients = [
 				frappe.get_cached_value("Tenant", agr["tenant"], "tenant_email"),
@@ -73,6 +80,9 @@ def check_rental_validity():
 								Airport Management
 							"""
 					comment_text = "Rental Expiry Reminder before 7 Days sent"
+				else:
+					add_comment("Scheduled Job Type","shop.check_rental_validity","no action","auto update")
+					continue
 				frappe.sendmail(
 						recipients=recipients,
 						sender=sender,
@@ -82,16 +92,4 @@ def check_rental_validity():
 					)
 				add_comment("Shop", shop.name, comment_text, comment_by='Auto Update')
 			frappe.db.commit()				
-	
-def add_comment(reference_doctype, reference_name, comment_text, comment_by=None):
-    comment = frappe.get_doc({
-        "doctype": "Comment",
-        "comment_type": "Comment",
-        "reference_doctype": reference_doctype,
-        "reference_name": reference_name,
-        "content": comment_text,
-        "comment_by": comment_by or frappe.session.user  # Defaults to current user
-    })
-    comment.insert(ignore_permissions=True)
-    frappe.db.commit()  # Ensure it's saved to the database
-    return comment.name
+

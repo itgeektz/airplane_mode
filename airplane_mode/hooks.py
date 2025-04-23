@@ -154,9 +154,9 @@ scheduler_events = {
 # 	"weekly": [
 # 		"airplane_mode.tasks.weekly"
 # 	],
-# 	"monthly": [
-# 		"airplane_mode.tasks.monthly"
-# 	],
+ 	"monthly": [
+ 		"airplane_mode.track_shops.doctype.rental_agreement.rental_agreement.create_monthly_invoice"
+ 	],
  }
 
 # Testing

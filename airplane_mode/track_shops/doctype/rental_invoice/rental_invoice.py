@@ -31,11 +31,12 @@ def update_bill(self):
 				item.rate = frappe.get_cached_value("Shop",self.shop,'rate_per_sqm')
 				item.total = item.rate * item.invoice_qty
 			else:
-				item.rate = frappe.get_value("Item Price",
+				rate = frappe.db.get_value("Item Price",
 									filters={"item":item.invoice_item,"price_list":self.price_list},
 									fieldname="item_rate")
-				if not item.rate:
-					frappe.throw("Please set the price for rental particular at item price")
+				if not rate:
+					frappe.throw("Please set the price for rental particular <b> {0} </b> <b> {1} </b> at item price".format(item.invoice_item,rate))
+				item.rate = rate
 				if item.invoice_qty < 1:
 					frappe.throw("Please set the qty for item {0}".format(item.invoice_item))
 				item.total = item.rate * item.invoice_qty
@@ -61,6 +62,7 @@ def update_item_defaults(item):
 			item.discounted_amount = item.total - item.discount
 	else:
 		item.discounted_amount = item.total
+	item.tax = frappe.db.get_single_value('Tax', 'tax_percentage')
 	item.added_tax = (item.discounted_amount * item.tax)/100 if item.tax else 0
 	item.total_amount = item.discounted_amount + (item.added_tax if item.added_tax else 0)
 	item.inclusive_tax = item.discounted_amount + (item.added_tax if item.added_tax else 0)
